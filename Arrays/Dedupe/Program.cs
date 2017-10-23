@@ -10,7 +10,9 @@ namespace Dedupe
     {
         static void Main(string[] args)
         {
-            int[] nums = new int[50];
+
+
+            int[] nums = new int[5000];
 
             Random rand = new Random();
             int lowest = 10000;
@@ -24,30 +26,30 @@ namespace Dedupe
             }
 
             Array.Sort(nums);
-
+            int current = 0;
             for (int i = 0; i < nums.Length; i++)
             {
-                for(int j = 0; j < nums.Length; j++)
+                if(current != nums[i])
                 {
-                    if (nums[i] == nums[j])
-                    {
-                        //nums[i] = -1;
-                        
-                        removed++;
-                    }
+                    current = nums[i];
                 }
+                else
+                {
+                    nums[i] = -1;
+                }
+                
             }
             Array.Sort(nums);
 
             for (int i=0;i<nums.Length;i++)
             Console.Write(nums[i] + ", ");
             Console.WriteLine("");
-
-            int final = nums.Length - removed;
-
-
+            
+            
 
 
+            
+            
 
 
         }
