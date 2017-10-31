@@ -13,7 +13,7 @@ namespace Tic_Tac_Toe
             String[,] slots = new String[3, 3];
             bool valid = true;
             bool win = false;
-            bool draw = false;
+            
             String move;
             bool check = false;
             bool check2 = false;
@@ -25,10 +25,7 @@ namespace Tic_Tac_Toe
             bool check8 = false;
             bool check9 = false;
             int row, col;
-            String there = "";
-            String first;
-            String second;
-            String sCol;
+            
 
             Console.WriteLine("    A   B   C  ");
             Console.WriteLine("  +---+---+---+");
@@ -52,7 +49,7 @@ namespace Tic_Tac_Toe
             while (check == false && win == false)
             {
 
-                Console.WriteLine("Player X, where do you want to move? : ");
+                Console.WriteLine("Player X, where do you want to move? :  (number then letter)");
                 move = Console.ReadLine();
 
                 // checks if on the board
@@ -78,12 +75,12 @@ namespace Tic_Tac_Toe
                 if (row > 3 || row < 0)
                     valid = false;
 
-                /*/checks if something is there
-                if (slots[row, col] == "   ")
+                //checks if something is there
+                if (slots[row, col] == " X " || slots[row, col] == " O ")
                 {
-                    valid = true;
+                    valid = false;
                 }
-                else valid = false;/*/
+
 
                 // Puts X into board
                 if (valid == true)
@@ -104,7 +101,19 @@ namespace Tic_Tac_Toe
                 else
                 {
                     check = false;
-                    Console.WriteLine("That is an invalid move. Try again");
+                    Console.WriteLine("That is an invalid move. Try again \n");
+                }
+
+                // Win Check
+                if ((slots[0, 0] == " X " && slots[0, 1] == " X " && slots[0, 2] == " X ") || (slots[1, 0] == " X " && slots[1, 1] == " X " && slots[1, 2] == " X ") || (slots[2, 0] == " X " && slots[2, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 0] == " X " && slots[2, 0] == " X ") || (slots[0, 1] == " X " && slots[1, 1] == " X " && slots[2, 1] == " X ") || (slots[0, 2] == " X " && slots[1, 2] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 2] == " X " && slots[1, 1] == " X " && slots[2, 0] == " X "))
+                {
+                    Console.WriteLine("Player X Wins!!!!!");
+                    win = true;
+                }
+                else if ((slots[0, 0] == " O " && slots[0, 1] == " O " && slots[0, 2] == " O ") || (slots[1, 0] == " O " && slots[1, 1] == " O " && slots[1, 2] == " O ") || (slots[2, 0] == " O " && slots[2, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 0] == " O " && slots[2, 0] == " O ") || (slots[0, 1] == " O " && slots[1, 1] == " O " && slots[2, 1] == " O ") || (slots[0, 2] == " O " && slots[1, 2] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 2] == " O " && slots[1, 1] == " O " && slots[2, 0] == " O "))
+                {
+                    Console.WriteLine("Player O Wins!!!!!");
+                    win = true;
                 }
             }
 
@@ -144,11 +153,11 @@ namespace Tic_Tac_Toe
                     col = 2;
                 row = Convert.ToInt32(move.Substring(0, 1)) - 1;
 
-                /*/ checks if something is there
-                if (slots[row,col] != " ")
+                //checks if something is there
+                if (slots[row, col] == " X " || slots[row, col] == " O ")
                 {
                     valid = false;
-                }/*/
+                }
 
                 // Puts X into board
                 if (valid == true)
@@ -169,7 +178,19 @@ namespace Tic_Tac_Toe
                 else
                 {
                     check2 = false;
-                    Console.WriteLine("That is an invalid move. Try again");
+                    Console.WriteLine("That is an invalid move. Try again \n");
+                }
+
+                // Win Check
+                if ((slots[0, 0] == " X " && slots[0, 1] == " X " && slots[0, 2] == " X ") || (slots[1, 0] == " X " && slots[1, 1] == " X " && slots[1, 2] == " X ") || (slots[2, 0] == " X " && slots[2, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 0] == " X " && slots[2, 0] == " X ") || (slots[0, 1] == " X " && slots[1, 1] == " X " && slots[2, 1] == " X ") || (slots[0, 2] == " X " && slots[1, 2] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 2] == " X " && slots[1, 1] == " X " && slots[2, 0] == " X "))
+                {
+                    Console.WriteLine("Player X Wins!!!!!");
+                    win = true;
+                }
+                else if ((slots[0, 0] == " O " && slots[0, 1] == " O " && slots[0, 2] == " O ") || (slots[1, 0] == " O " && slots[1, 1] == " O " && slots[1, 2] == " O ") || (slots[2, 0] == " O " && slots[2, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 0] == " O " && slots[2, 0] == " O ") || (slots[0, 1] == " O " && slots[1, 1] == " O " && slots[2, 1] == " O ") || (slots[0, 2] == " O " && slots[1, 2] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 2] == " O " && slots[1, 1] == " O " && slots[2, 0] == " O "))
+                {
+                    Console.WriteLine("Player O Wins!!!!!");
+                    win = true;
                 }
             }
 
@@ -195,11 +216,11 @@ namespace Tic_Tac_Toe
                     col = 2;
                 row = Convert.ToInt32(move.Substring(0, 1)) - 1;
 
-                /*/ checks if something is there
-                if (slots[row,col] != " ")
+                //checks if something is there
+                if (slots[row, col] == " X " || slots[row, col] == " O ")
                 {
                     valid = false;
-                }/*/
+                }
 
                 // Puts X into board
                 if (valid == true)
@@ -222,7 +243,25 @@ namespace Tic_Tac_Toe
                     check3 = false;
                     Console.WriteLine("That is an invalid move. Try again");
                 }
+
+                // Win Check
+                if ((slots[0, 0] == " X " && slots[0, 1] == " X " && slots[0, 2] == " X ") || (slots[1, 0] == " X " && slots[1, 1] == " X " && slots[1, 2] == " X ") || (slots[2, 0] == " X " && slots[2, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 0] == " X " && slots[2, 0] == " X ") || (slots[0, 1] == " X " && slots[1, 1] == " X " && slots[2, 1] == " X ") || (slots[0, 2] == " X " && slots[1, 2] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 2] == " X " && slots[1, 1] == " X " && slots[2, 0] == " X "))
+                {
+                    Console.WriteLine("Player X Wins!!!!!");
+                    win = true;
+                }
+                else if ((slots[0, 0] == " O " && slots[0, 1] == " O " && slots[0, 2] == " O ") || (slots[1, 0] == " O " && slots[1, 1] == " O " && slots[1, 2] == " O ") || (slots[2, 0] == " O " && slots[2, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 0] == " O " && slots[2, 0] == " O ") || (slots[0, 1] == " O " && slots[1, 1] == " O " && slots[2, 1] == " O ") || (slots[0, 2] == " O " && slots[1, 2] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 2] == " O " && slots[1, 1] == " O " && slots[2, 0] == " O "))
+                {
+                    Console.WriteLine("Player O Wins!!!!!");
+                    win = true;
+                }
+
+
             }
+
+            //
+
+
 
             //Turn 4
             while (check4 == false && win == false)
@@ -246,18 +285,18 @@ namespace Tic_Tac_Toe
                     col = 2;
                 row = Convert.ToInt32(move.Substring(0, 1)) - 1;
 
-                /*/ checks if something is there
-                if (slots[row,col] != " ")
+                //checks if something is there
+                if (slots[row, col] == " X " || slots[row, col] == " O ")
                 {
                     valid = false;
-                }/*/
+                }
 
                 // Puts X into board
                 if (valid == true)
                 {
                     slots[row, col] = " O ";
 
-                    check2 = true;
+                    check4 = true;
                     Console.WriteLine("    A   B   C  ");
                     Console.WriteLine("  +---+---+---+");
                     Console.WriteLine("1 |" + slots[0, 0] + "|" + slots[0, 1] + "|" + slots[0, 2] + "|");
@@ -271,7 +310,19 @@ namespace Tic_Tac_Toe
                 else
                 {
                     check4 = false;
-                    Console.WriteLine("That is an invalid move. Try again LAST");
+                    Console.WriteLine("That is an invalid move. Try again");
+                }
+
+                // Win Check
+                if ((slots[0, 0] == " X " && slots[0, 1] == " X " && slots[0, 2] == " X ") || (slots[1, 0] == " X " && slots[1, 1] == " X " && slots[1, 2] == " X ") || (slots[2, 0] == " X " && slots[2, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 0] == " X " && slots[2, 0] == " X ") || (slots[0, 1] == " X " && slots[1, 1] == " X " && slots[2, 1] == " X ") || (slots[0, 2] == " X " && slots[1, 2] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 2] == " X " && slots[1, 1] == " X " && slots[2, 0] == " X "))
+                {
+                    Console.WriteLine("Player X Wins!!!!!");
+                    win = true;
+                }
+                else if ((slots[0, 0] == " O " && slots[0, 1] == " O " && slots[0, 2] == " O ") || (slots[1, 0] == " O " && slots[1, 1] == " O " && slots[1, 2] == " O ") || (slots[2, 0] == " O " && slots[2, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 0] == " O " && slots[2, 0] == " O ") || (slots[0, 1] == " O " && slots[1, 1] == " O " && slots[2, 1] == " O ") || (slots[0, 2] == " O " && slots[1, 2] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 2] == " O " && slots[1, 1] == " O " && slots[2, 0] == " O "))
+                {
+                    Console.WriteLine("Player O Wins!!!!!");
+                    win = true;
                 }
             }
 
@@ -297,11 +348,11 @@ namespace Tic_Tac_Toe
                     col = 2;
                 row = Convert.ToInt32(move.Substring(0, 1)) - 1;
 
-                /*/ checks if something is there
-                if (slots[row,col] != " ")
+                //checks if something is there
+                if (slots[row, col] == " X " || slots[row, col] == " O ")
                 {
                     valid = false;
-                }/*/
+                }
 
                 // Puts X into board
                 if (valid == true)
@@ -324,6 +375,274 @@ namespace Tic_Tac_Toe
                     check5 = false;
                     Console.WriteLine("That is an invalid move. Try again");
                 }
+
+                // Win Check
+                if ((slots[0, 0] == " X " && slots[0, 1] == " X " && slots[0, 2] == " X ") || (slots[1, 0] == " X " && slots[1, 1] == " X " && slots[1, 2] == " X ") || (slots[2, 0] == " X " && slots[2, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 0] == " X " && slots[2, 0] == " X ") || (slots[0, 1] == " X " && slots[1, 1] == " X " && slots[2, 1] == " X ") || (slots[0, 2] == " X " && slots[1, 2] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 2] == " X " && slots[1, 1] == " X " && slots[2, 0] == " X "))
+                {
+                    Console.WriteLine("Player X Wins!!!!!");
+                    win = true;
+                }
+                else if ((slots[0, 0] == " O " && slots[0, 1] == " O " && slots[0, 2] == " O ") || (slots[1, 0] == " O " && slots[1, 1] == " O " && slots[1, 2] == " O ") || (slots[2, 0] == " O " && slots[2, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 0] == " O " && slots[2, 0] == " O ") || (slots[0, 1] == " O " && slots[1, 1] == " O " && slots[2, 1] == " O ") || (slots[0, 2] == " O " && slots[1, 2] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 2] == " O " && slots[1, 1] == " O " && slots[2, 0] == " O "))
+                {
+                    Console.WriteLine("Player O Wins!!!!!");
+                    win = true;
+                }
+
+            }
+
+            //Turn 6
+            while (check6 == false && win == false)
+            {
+
+                Console.WriteLine("Player O, where do you want to move? : ");
+                move = Console.ReadLine();
+
+                // checks if on the board
+                if (move != "1A" && move != "1B" && move != "1C" && move != "2A" && move != "2B" && move != "2C" && move != "3A" && move != "3B" && move != "3C")
+                    valid = false;
+                else
+                    valid = true;
+
+                //Assigns row and col
+                if (move.Substring(1, 1) == "A")
+                    col = 0;
+                else if (move.Substring(1, 1) == "B")
+                    col = 1;
+                else
+                    col = 2;
+                row = Convert.ToInt32(move.Substring(0, 1)) - 1;
+
+                //checks if something is there
+                if (slots[row, col] == " X " || slots[row, col] == " O ")
+                {
+                    valid = false;
+                }
+
+                // Puts X into board
+                if (valid == true)
+                {
+                    slots[row, col] = " O ";
+
+                    check6 = true;
+                    Console.WriteLine("    A   B   C  ");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("1 |" + slots[0, 0] + "|" + slots[0, 1] + "|" + slots[0, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("2 |" + slots[1, 0] + "|" + slots[1, 1] + "|" + slots[1, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("3 |" + slots[2, 0] + "|" + slots[2, 1] + "|" + slots[2, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+
+                }
+                else
+                {
+                    check6 = false;
+                    Console.WriteLine("That is an invalid move. Try again");
+                }
+
+                // Win Check
+                if ((slots[0, 0] == " X " && slots[0, 1] == " X " && slots[0, 2] == " X ") || (slots[1, 0] == " X " && slots[1, 1] == " X " && slots[1, 2] == " X ") || (slots[2, 0] == " X " && slots[2, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 0] == " X " && slots[2, 0] == " X ") || (slots[0, 1] == " X " && slots[1, 1] == " X " && slots[2, 1] == " X ") || (slots[0, 2] == " X " && slots[1, 2] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 2] == " X " && slots[1, 1] == " X " && slots[2, 0] == " X "))
+                {
+                    Console.WriteLine("Player X Wins!!!!!");
+                    win = true;
+                }
+                else if ((slots[0, 0] == " O " && slots[0, 1] == " O " && slots[0, 2] == " O ") || (slots[1, 0] == " O " && slots[1, 1] == " O " && slots[1, 2] == " O ") || (slots[2, 0] == " O " && slots[2, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 0] == " O " && slots[2, 0] == " O ") || (slots[0, 1] == " O " && slots[1, 1] == " O " && slots[2, 1] == " O ") || (slots[0, 2] == " O " && slots[1, 2] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 2] == " O " && slots[1, 1] == " O " && slots[2, 0] == " O "))
+                {
+                    Console.WriteLine("Player O Wins!!!!!");
+                    win = true;
+                }
+            }
+
+            //Turn 7
+            while (check7 == false && win == false)
+            {
+
+                Console.WriteLine("Player X, where do you want to move? : ");
+                move = Console.ReadLine();
+
+                // checks if on the board
+                if (move != "1A" && move != "1B" && move != "1C" && move != "2A" && move != "2B" && move != "2C" && move != "3A" && move != "3B" && move != "3C")
+                    valid = false;
+                else
+                    valid = true;
+
+                //Assigns row and col
+                if (move.Substring(1, 1) == "A")
+                    col = 0;
+                else if (move.Substring(1, 1) == "B")
+                    col = 1;
+                else
+                    col = 2;
+                row = Convert.ToInt32(move.Substring(0, 1)) - 1;
+
+                //checks if something is there
+                if (slots[row, col] == " X " || slots[row, col] == " O ")
+                {
+                    valid = false;
+                }
+
+                // Puts X into board
+                if (valid == true)
+                {
+                    slots[row, col] = " X ";
+
+                    check7 = true;
+                    Console.WriteLine("    A   B   C  ");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("1 |" + slots[0, 0] + "|" + slots[0, 1] + "|" + slots[0, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("2 |" + slots[1, 0] + "|" + slots[1, 1] + "|" + slots[1, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("3 |" + slots[2, 0] + "|" + slots[2, 1] + "|" + slots[2, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+
+                }
+                else
+                {
+                    check7 = false;
+                    Console.WriteLine("That is an invalid move. Try again");
+                }
+
+                // Win Check
+                if ((slots[0, 0] == " X " && slots[0, 1] == " X " && slots[0, 2] == " X ") || (slots[1, 0] == " X " && slots[1, 1] == " X " && slots[1, 2] == " X ") || (slots[2, 0] == " X " && slots[2, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 0] == " X " && slots[2, 0] == " X ") || (slots[0, 1] == " X " && slots[1, 1] == " X " && slots[2, 1] == " X ") || (slots[0, 2] == " X " && slots[1, 2] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 2] == " X " && slots[1, 1] == " X " && slots[2, 0] == " X "))
+                {
+                    Console.WriteLine("Player X Wins!!!!!");
+                    win = true;
+                }
+                else if ((slots[0, 0] == " O " && slots[0, 1] == " O " && slots[0, 2] == " O ") || (slots[1, 0] == " O " && slots[1, 1] == " O " && slots[1, 2] == " O ") || (slots[2, 0] == " O " && slots[2, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 0] == " O " && slots[2, 0] == " O ") || (slots[0, 1] == " O " && slots[1, 1] == " O " && slots[2, 1] == " O ") || (slots[0, 2] == " O " && slots[1, 2] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 2] == " O " && slots[1, 1] == " O " && slots[2, 0] == " O "))
+                {
+                    Console.WriteLine("Player O Wins!!!!!");
+                    win = true;
+                }
+
+            }
+
+            // Turn 8
+            while (check8 == false && win == false)
+            {
+
+                Console.WriteLine("Player O, where do you want to move? : ");
+                move = Console.ReadLine();
+
+                // checks if on the board
+                if (move != "1A" && move != "1B" && move != "1C" && move != "2A" && move != "2B" && move != "2C" && move != "3A" && move != "3B" && move != "3C")
+                    valid = false;
+                else
+                    valid = true;
+
+                //Assigns row and col
+                if (move.Substring(1, 1) == "A")
+                    col = 0;
+                else if (move.Substring(1, 1) == "B")
+                    col = 1;
+                else
+                    col = 2;
+                row = Convert.ToInt32(move.Substring(0, 1)) - 1;
+
+                //checks if something is there
+                if (slots[row, col] == " X " || slots[row, col] == " O ")
+                {
+                    valid = false;
+                }
+
+                // Puts X into board
+                if (valid == true)
+                {
+                    slots[row, col] = " O ";
+
+                    check8 = true;
+                    Console.WriteLine("    A   B   C  ");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("1 |" + slots[0, 0] + "|" + slots[0, 1] + "|" + slots[0, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("2 |" + slots[1, 0] + "|" + slots[1, 1] + "|" + slots[1, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("3 |" + slots[2, 0] + "|" + slots[2, 1] + "|" + slots[2, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+
+                }
+                else
+                {
+                    check8 = false;
+                    Console.WriteLine("That is an invalid move. Try again");
+                }
+
+                // Win Check
+                if ((slots[0, 0] == " X " && slots[0, 1] == " X " && slots[0, 2] == " X ") || (slots[1, 0] == " X " && slots[1, 1] == " X " && slots[1, 2] == " X ") || (slots[2, 0] == " X " && slots[2, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 0] == " X " && slots[2, 0] == " X ") || (slots[0, 1] == " X " && slots[1, 1] == " X " && slots[2, 1] == " X ") || (slots[0, 2] == " X " && slots[1, 2] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 2] == " X " && slots[1, 1] == " X " && slots[2, 0] == " X "))
+                {
+                    Console.WriteLine("Player X Wins!!!!!");
+                    win = true;
+                }
+                else if ((slots[0, 0] == " O " && slots[0, 1] == " O " && slots[0, 2] == " O ") || (slots[1, 0] == " O " && slots[1, 1] == " O " && slots[1, 2] == " O ") || (slots[2, 0] == " O " && slots[2, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 0] == " O " && slots[2, 0] == " O ") || (slots[0, 1] == " O " && slots[1, 1] == " O " && slots[2, 1] == " O ") || (slots[0, 2] == " O " && slots[1, 2] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 2] == " O " && slots[1, 1] == " O " && slots[2, 0] == " O "))
+                {
+                    Console.WriteLine("Player O Wins!!!!!");
+                    win = true;
+                }
+            }
+
+            //Turn 9
+            while (check9 == false && win == false)
+            {
+
+                Console.WriteLine("Player X, where do you want to move? : ");
+                move = Console.ReadLine();
+
+                // checks if on the board
+                if (move != "1A" && move != "1B" && move != "1C" && move != "2A" && move != "2B" && move != "2C" && move != "3A" && move != "3B" && move != "3C")
+                    valid = false;
+                else
+                    valid = true;
+
+                //Assigns row and col
+                if (move.Substring(1, 1) == "A")
+                    col = 0;
+                else if (move.Substring(1, 1) == "B")
+                    col = 1;
+                else
+                    col = 2;
+                row = Convert.ToInt32(move.Substring(0, 1)) - 1;
+
+                //checks if something is there
+                if (slots[row, col] == " X " || slots[row, col] == " O ")
+                {
+                    valid = false;
+                }
+
+                // Puts X into board
+                if (valid == true)
+                {
+                    slots[row, col] = " X ";
+
+                    check9 = true;
+                    Console.WriteLine("    A   B   C  ");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("1 |" + slots[0, 0] + "|" + slots[0, 1] + "|" + slots[0, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("2 |" + slots[1, 0] + "|" + slots[1, 1] + "|" + slots[1, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+                    Console.WriteLine("3 |" + slots[2, 0] + "|" + slots[2, 1] + "|" + slots[2, 2] + "|");
+                    Console.WriteLine("  +---+---+---+");
+
+                }
+                else
+                {
+                    check9 = false;
+                    Console.WriteLine("That is an invalid move. Try again");
+                }
+
+                // Win Check
+                if ((slots[0, 0] == " X " && slots[0, 1] == " X " && slots[0, 2] == " X ") || (slots[1, 0] == " X " && slots[1, 1] == " X " && slots[1, 2] == " X ") || (slots[2, 0] == " X " && slots[2, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 0] == " X " && slots[2, 0] == " X ") || (slots[0, 1] == " X " && slots[1, 1] == " X " && slots[2, 1] == " X ") || (slots[0, 2] == " X " && slots[1, 2] == " X " && slots[2, 2] == " X ") || (slots[0, 0] == " X " && slots[1, 1] == " X " && slots[2, 2] == " X ") || (slots[0, 2] == " X " && slots[1, 1] == " X " && slots[2, 0] == " X "))
+                {
+                    Console.WriteLine("Player X Wins!!!!!");
+                    win = true;
+                }
+                else if ((slots[0, 0] == " O " && slots[0, 1] == " O " && slots[0, 2] == " O ") || (slots[1, 0] == " O " && slots[1, 1] == " O " && slots[1, 2] == " O ") || (slots[2, 0] == " O " && slots[2, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 0] == " O " && slots[2, 0] == " O ") || (slots[0, 1] == " O " && slots[1, 1] == " O " && slots[2, 1] == " O ") || (slots[0, 2] == " O " && slots[1, 2] == " O " && slots[2, 2] == " O ") || (slots[0, 0] == " O " && slots[1, 1] == " O " && slots[2, 2] == " O ") || (slots[0, 2] == " O " && slots[1, 1] == " O " && slots[2, 0] == " O "))
+                {
+                    Console.WriteLine("Player O Wins!!!!!");
+                    win = true;
+                }
+                else
+                    Console.WriteLine("Nobody wins, its a tie");
             }
 
 
